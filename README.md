@@ -1,7 +1,3 @@
-Here's an enhanced and more comprehensive version of the README file with details about the dataset, parallel processing techniques, and GPU utilization:
-
----
-
 # Heart Disease Prediction with Explainability
 
 This project implements a comprehensive pipeline for binary classification to predict heart disease. The pipeline leverages both machine learning and deep learning techniques and integrates modern tools for data preprocessing, exploratory analysis, hyperparameter optimization, model explainability, and GPU-based acceleration. It also emphasizes reproducibility and scalability.
