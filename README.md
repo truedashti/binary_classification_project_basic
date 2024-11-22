@@ -191,6 +191,3 @@ The project outputs include:
 
 Contributions are welcome! If you find issues or want to add features, feel free to open issues or submit pull requests on [GitHub](https://github.com/truedashti).
 
----
-
-This README file now includes all relevant details about the dataset, parallel processing techniques, and GPU usage. Let me know if you'd like further enhancements!
