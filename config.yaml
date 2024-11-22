@@ -1,0 +1,88 @@
+# config.yaml
+
+data:
+  path: 'data/heart.csv'
+
+preprocessing:
+  test_size: 0.2
+  missing_values_strategy: 'drop'
+
+class_imbalance:
+  method: 'compute_class_weights'
+
+model:
+  layers:
+    - units: 64
+      activation: relu
+      dropout: 0.5
+    - units: 32
+      activation: relu
+      dropout: 0.5
+    - units: 1
+      activation: sigmoid
+  loss: 'binary_crossentropy'
+  optimizer: 'adam'
+  metrics: ['accuracy']
+  epochs: 100
+  batch_size: 32
+
+hyperparameters:
+  units:
+    min: 32
+    max: 128
+    step: 32
+  dropout:
+    min: 0.1
+    max: 0.5
+    step: 0.1
+  optimizer:
+    values: ['adam', 'rmsprop', 'sgd']
+  learning_rate:
+    values: [0.1, 0.01, 0.001, 0.0001]
+  epochs:
+    min: 10
+    max: 100
+    step: 10
+
+plotting:
+  figure_sizes:
+    correlation_heatmap: [10, 8]
+    target_distribution: [10, 8]
+    confusion_matrix: [10, 8]
+    classification_report: [10, 8]
+    precision_recall_curve: [10, 8]
+    training_history: [10, 8]
+    validation_f1_score: [10, 8]
+    shap_summary: [10, 8]
+    shap_force_plot: [10, 8]
+    shap_waterfall_plot: [10, 8]
+    roc_curve: [10, 8]
+    top_correlation_heatmap: [10, 8]
+    hyperparameter_performance: [10, 8]
+  dpi: 300
+
+report:
+  title: "Binary Classification Model Report"
+  executive_summary: "This report presents the analysis, modeling, and evaluation of a binary classification task. The objective was to predict the target variable based on the provided features. Key findings include improved accuracy and robust model performance metrics, indicating effective feature selection and model training."
+
+logging:
+  version: 1
+  disable_existing_loggers: False
+  formatters:
+    standard:
+      format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: standard
+      level: DEBUG
+    file:
+      class: logging.FileHandler
+      filename: 'logs/project.log'
+      formatter: standard
+      level: DEBUG
+  loggers:
+    '':
+      handlers: [console, file]
+      level: DEBUG
+      propagate: True
